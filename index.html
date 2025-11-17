@@ -1665,14 +1665,15 @@
             // This function is kept for any additional client-side validation
         });
 
-        // Download Menu PDF
-        const downloadMenuBtn = document.getElementById('download-menu');
-        downloadMenuBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Thank you for your interest! The full menu PDF will be available for download soon. In the meantime, please browse our full menu above or contact us for more information.');
-            // In a real implementation, you would link to an actual PDF file
-            // window.open('path/to/your/menu.pdf', '_blank');
-        });
+              // Download Menu PDF
+                const downloadMenuBtn = document.getElementById('download-menu');
+                downloadMenuBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your interest! The full menu PDF will be downloaded.');
+                    // Open the PDF using the link's href so it works in the browser and on servers
+                    const pdfUrl = downloadMenuBtn.getAttribute('href');
+                    window.open(pdfUrl, '_blank');
+                });
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1700,4 +1701,5 @@
         });
     </script>
 </body>
+
 </html>

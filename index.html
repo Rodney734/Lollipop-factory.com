@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lollipop Factory | Cocktails & Mocktails | Lilongwe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6b8b;
+            --secondary: #ffd166;
+            --accent: #06d6a0;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --text: #333333;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background-color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 10px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+
+        /* About Section */
+        .about {
+            background-color: white;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Services Section */
+        .services {
+            background-color: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Menu Section */
+        .menu {
+            background-color: white;
+        }
+
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .menu-tab {
+            padding: 10px 25px;
+            margin: 0 10px 10px;
+            background: transparent;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            color: var(--primary);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .menu-tab.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .menu-tab:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .menu-item-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .menu-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .menu-item:hover .menu-item-image img {
+            transform: scale(1.1);
+        }
+
+        .menu-item-content {
+            padding: 20px;
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .menu-item-price {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .menu-item-description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .full-menu-btn {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Full Menu Section */
+        .full-menu {
+            background-color: #f8f9fa;
+        }
+
+        .menu-download {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .menu-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .menu-category {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .menu-category h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .menu-item-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .menu-item-name {
+            font-weight: 500;
+        }
+
+        .menu-item-price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .menu-item-note {
+            font-style: italic;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .package-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .package-features li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .package-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .package-price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Events Section */
+        .events {
+            background-color: #f8f9fa;
+        }
+
+        .events-slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .events-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .event-slide {
+            min-width: 100%;
+            padding: 0 15px;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .event-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .event-card:hover .event-image img {
+            transform: scale(1.1);
+        }
+
+        .event-content {
+            padding: 25px;
+        }
+
+        .event-date {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .event-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .event-description {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background-color: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: var(--shadow);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-icon {
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #f8f9fa;
+        }
+
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .info-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255, 107, 139, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo span {
+            color: var(--primary);
+        }
+
+        .footer-about {
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="311912710_513378006945964_4397571428083479436_n.jpg" alt="The Lollipop Factory Logo">
+                    <div class="logo-text">The <span>Lollipop</span> Factory</div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#full-menu">Full Menu</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="floating-elements">
+            <div class="floating-element" style="width: 100px; height: 100px; top: 10%; left: 10%;"></div>
+            <div class="floating-element" style="width: 150px; height: 150px; top: 60%; left: 80%;"></div>
+            <div class="floating-element" style="width: 80px; height: 80px; top: 80%; left: 20%;"></div>
+            <div class="floating-element" style="width: 120px; height: 120px; top: 30%; left: 70%;"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Crafting Extraordinary Cocktails & Mocktails</h1>
+                <p>Experience the art of mixology at The Lollipop Factory, where every drink tells a story and every flavor creates a memory.</p>
+                <a href="#menu" class="btn btn-primary">Explore Our Menu</a>
+                <a href="#full-menu" class="btn btn-secondary" style="margin-left: 15px;">View Full Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>About Us</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <h2>Welcome to The Lollipop Factory</h2>
+                    <p>Located in the heart of Lilongwe, The Lollipop Factory is a mobile beverage business dedicated to crafting high-quality drinks for all events. We specialize in creating exquisite cocktails and mocktails that delight the senses and elevate your drinking experience.</p>
+                    <p>Our skilled mixologists combine premium spirits, fresh ingredients, and innovative techniques to create beverages that are as visually stunning as they are delicious.</p>
+                    <p>Whether you're celebrating a special occasion, hosting a corporate event, or simply enjoying a night out, our creative concoctions will transform your experience into something truly memorable.</p>
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                </div>
+                <div class="about-image" data-aos="fade-left">
+                    <img src="IMG_2759.PNG" alt="About The Lollipop Factory">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-cocktail"></i>
+                    </div>
+                    <h3>Craft Cocktails</h3>
+                    <p>Expertly crafted cocktails using premium spirits, fresh ingredients, and innovative techniques.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-glass-whiskey"></i>
+                    </div>
+                    <h3>Creative Mocktails</h3>
+                    <p>Delicious non-alcoholic beverages that are just as sophisticated and flavorful as our cocktails.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Event Catering</h3>
+                    <p>Bring the Lollipop Factory experience to your special events with our mobile bar services.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Mixology Classes</h3>
+                    <p>Learn the art of mixology from our experts with hands-on cocktail and mocktail making classes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Our Menu</h2>
+            </div>
+            <div class="menu-tabs" data-aos="fade-up">
+                <button class="menu-tab active" data-tab="cocktails">Cocktails</button>
+                <button class="menu-tab" data-tab="mocktails">Mocktails</button>
+                <button class="menu-tab" data-tab="hot-drinks">Hot Drinks</button>
+                <button class="menu-tab" data-tab="specialties">Specialties</button>
+            </div>
+            <div class="menu-items">
+                <!-- Cocktails -->
+                <div class="menu-item" data-category="cocktails" data-aos="fade-up">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cocktails">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-name">Cocktails</h3>
+                            <span class="menu-item-price">MWK 8,000</span>
+                        </div>
+                        <p class="menu-item-description">Per glass. Expertly crafted with premium spirits and fresh ingredients.</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="cocktails" data-aos="fade-up">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mimosa">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-name">Mimosa</h3>
+                            <span class="menu-item-price">MWK 7,500</span>
+                        </div>
+                        <p class="menu-item-description">Per glass. Classic sparkling cocktail perfect for brunch.</p>
+                    </div>
+                </div>
+                
+                <!-- Mocktails -->
+                <div class="menu-item" data-category="mocktails" data-aos="fade-up">
+                    <div class="menu-item-image">
+                        <img src="mocktails.png" alt="Mocktails">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-name">Mocktails</h3>
+                            <span class="menu-item-price">MWK 6,000</span>
+                        </div>
+                        <p class="menu-item-description">Per glass. Sophisticated non-alcoholic beverages with complex flavors.</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="mocktails" data-aos="fade-up">
+                    <div class="menu-item-image">
+                        <img src="smoothiee.png" alt="Smoothie">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-name">Smoothie</h3>
+                            <span class="menu-item-price">MWK 9,000</span>
+                        </div>
+                        <p class="menu-item-description">Per cup. Blended with fresh fruits and natural ingredients.</p>
+                    </div>
+                </div>
+                
+                <!-- Hot Drinks -->
+                <div class="menu-item" data-category="hot-drinks" data-aos="fade-up">
+                    <div class="menu-item-image">
+                        <img src="ice tea.png" alt="Coffee, Tea, Hot Chocolate">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-name">Coffee, Tea, Hot Chocolate</h3>
+                            <span class="menu-item-price">MWK 6,000</span>
+                        </div>
+                        <p class="menu-item-description">Per cup. Warm and comforting beverages for any time of day.</p>
+                    </div>
+                </div>
+
+                
+                
+                <!-- Specialties -->
+                <div class="menu-item" data-category="specialties" data-aos="fade-up">
+                    <div class="menu-item-image">
+                        <img src="White Wine Spritzer.jfif" alt="Sangria">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-name">Sangria</h3>
+                            <span class="menu-item-price">MWK 20,000</span>
+                        </div>
+                        <p class="menu-item-description">1L. Spanish-inspired wine punch with fresh fruits.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="full-menu-btn" data-aos="fade-up">
+                <a href="#full-menu" class="btn btn-primary">View Full Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Menu Section -->
+    <section class="full-menu" id="full-menu">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Full Menu & Packages</h2>
+                <p>Complete pricing and package details for all our services</p>
+            </div>
+            
+            <div class="menu-download" data-aos="fade-up">
+                <a href="#" class="btn btn-primary" id="download-menu">
+                    <i class="fas fa-download"></i> Download Full Menu (PDF)
+                </a>
+            </div>
+            
+            <div class="menu-categories" data-aos="fade-up">
+                <div class="menu-category">
+                    <h3>Cocktails & Mocktails</h3>
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Cocktails</span>
+                        <span class="menu-item-price">MWK 8,000</span>
+                    </div>
+                    <div class="menu-item-note">Per Glass</div>
+                    
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Mocktails</span>
+                        <span class="menu-item-price">MWK 6,000</span>
+                    </div>
+                    <div class="menu-item-note">Per Glass</div>
+                    
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Mimosa</span>
+                        <span class="menu-item-price">MWK 7,500</span>
+                    </div>
+                    <div class="menu-item-note">Per Glass</div>
+                </div>
+                
+                <div class="menu-category">
+                    <h3>Hot & Cold Drinks</h3>
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Coffee, Tea, Hot Chocolate</span>
+                        <span class="menu-item-price">MWK 6,000</span>
+                    </div>
+                    <div class="menu-item-note">Per Cup</div>
+                    
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Ice Tea</span>
+                        <span class="menu-item-price">MWK 7,000</span>
+                    </div>
+                    <div class="menu-item-note">Per Cup</div>
+                    
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Smoothie</span>
+                        <span class="menu-item-price">MWK 9,000</span>
+                    </div>
+                    <div class="menu-item-note">Per Cup</div>
+                    
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Milkshake</span>
+                        <span class="menu-item-price">MWK 9,000</span>
+                    </div>
+                    <div class="menu-item-note">Per Cup</div>
+                    
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Slushies</span>
+                        <span class="menu-item-price">MWK 8,000</span>
+                    </div>
+                    <div class="menu-item-note">Per Cup</div>
+                </div>
+                
+                <div class="menu-category">
+                    <h3>Specialty Drinks</h3>
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Sangria</span>
+                        <span class="menu-item-price">MWK 20,000</span>
+                    </div>
+                    <div class="menu-item-note">1L</div>
+                    
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Spritzer</span>
+                        <span class="menu-item-price">MWK 20,000</span>
+                    </div>
+                    <div class="menu-item-note">1L</div>
+                    
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Juice</span>
+                        <span class="menu-item-price">MWK 7,500</span>
+                    </div>
+                    <div class="menu-item-note">1L</div>
+                    
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Fresh Juice</span>
+                        <span class="menu-item-price">MWK 10,000</span>
+                    </div>
+                    <div class="menu-item-note">1L</div>
+                    
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Bottled Water</span>
+                        <span class="menu-item-price">MWK 15,000</span>
+                    </div>
+                    <div class="menu-item-note">Case of 20</div>
+                </div>
+            </div>
+            
+            <div class="section-title" data-aos="fade-up">
+                <h2>Premium Beverages</h2>
+            </div>
+            
+            <div class="menu-categories" data-aos="fade-up">
+                <div class="menu-category">
+                    <h3>Wines & Champagne</h3>
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Wine</span>
+                        <span class="menu-item-price">Starting at MWK 30,000</span>
+                    </div>
+                    <div class="menu-item-note">Per Bottle</div>
+                    
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Champagne</span>
+                        <span class="menu-item-price">Starting at MWK 30,000</span>
+                    </div>
+                    <div class="menu-item-note">Per Bottle</div>
+                </div>
+                
+                <div class="menu-category">
+                    <h3>Premium Spirits</h3>
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Top Shelf Liquor</span>
+                        <span class="menu-item-price">Starting at MWK 100,000</span>
+                    </div>
+                    <div class="menu-item-note">Per Bottle</div>
+                </div>
+                
+                <div class="menu-category">
+                    <h3>Drink Dispensers</h3>
+                    <div class="menu-item-row">
+                        <span class="menu-item-name">Drink Dispenser</span>
+                        <span class="menu-item-price">Price Varies</span>
+                    </div>
+                    <div class="menu-item-note">4L - Depends on content</div>
+                </div>
+            </div>
+            
+            <div class="section-title" data-aos="fade-up">
+                <h2>Our Packages</h2>
+            </div>
+            
+            <div class="packages-grid" data-aos="fade-up">
+                <div class="package-card">
+                    <h3>Wedding Packages</h3>
+                    <ul class="package-features">
+                        <li><strong>Basic:</strong> Drink dispensers / Punch Setup</li>
+                        <li><strong>Classic:</strong> Mocktails / Cocktails, Drink Dispensers</li>
+                        <li><strong>Deluxe:</strong> Mocktails / Cocktails (or both), Bottled Water, Drink Dispensers, Champagne Wall</li>
+                        <li><strong>Platinum:</strong> Mocktails / Cocktails, Drink Dispensers, Customized Champagne bottles & Bottled Water, Customized Menu</li>
+                    </ul>
+                    <div class="package-price">Custom Pricing</div>
+                    <a href="#contact" class="btn btn-primary">Inquire Now</a>
+                </div>
+                
+                <div class="package-card">
+                    <h3>Corporate Packages</h3>
+                    <ul class="package-features">
+                        <li><strong>Basic:</strong> Drink Dispensers / Punch Setup</li>
+                        <li><strong>Classic:</strong> Drink Dispensers / Punch Setup, Bottled Water</li>
+                        <li><strong>Deluxe:</strong> Mocktails / Cocktails, Bottled Water, Drink Dispensers</li>
+                        <li><strong>Platinum:</strong> Mocktails / Cocktails, Drink Dispensers, Customized Champagne & Bottled Water, Customized Menu</li>
+                    </ul>
+                    <div class="package-price">Custom Pricing</div>
+                    <a href="#contact" class="btn btn-primary">Inquire Now</a>
+                </div>
+                
+                <div class="package-card">
+                    <h3>Party Packages</h3>
+                    <ul class="package-features">
+                        <li><strong>Classic:</strong> Drink Dispensers</li>
+                        <li><strong>Deluxe:</strong> Mocktails / Cocktails, Bottled Water, Drink Dispensers</li>
+                        <li><strong>Platinum:</strong> Mocktails / Cocktails, Assorted Spritzers, Customized Menu</li>
+                    </ul>
+                    <div class="package-price">Custom Pricing</div>
+                    <a href="#contact" class="btn btn-primary">Inquire Now</a>
+                </div>
+            </div>
+            
+            <div class="packages-grid" data-aos="fade-up">
+                <div class="package-card">
+                    <h3>Kids Party Packages</h3>
+                    <ul class="package-features">
+                        <li><strong>Classic:</strong> Drink Dispensers</li>
+                        <li><strong>Deluxe:</strong> Mocktails, Customized Disposable Cups, Bottled Water</li>
+                        <li><strong>Platinum:</strong> Mocktails, Customized Cups, Customized Water, Customized Menu, Juice Dispensers</li>
+                    </ul>
+                    <div class="package-price">Custom Pricing</div>
+                    <a href="#contact" class="btn btn-primary">Inquire Now</a>
+                </div>
+                
+                <div class="package-card">
+                    <h3>Breakfast & Brunch Packages</h3>
+                    <ul class="package-features">
+                        <li><strong>Classic:</strong> Assorted Teas & Coffee</li>
+                        <li><strong>Deluxe:</strong> Assorted Teas & Coffee, Juice</li>
+                        <li><strong>Platinum:</strong> Assorted Teas & Coffee, Juice, Mimosas, Smoothies</li>
+                    </ul>
+                    <div class="package-price">Custom Pricing</div>
+                    <a href="#contact" class="btn btn-primary">Inquire Now</a>
+                </div>
+                
+                <div class="package-card">
+                    <h3>Pop-Up Bar Service</h3>
+                    <ul class="package-features">
+                        <li>Booking Fee: MWK 60,000</li>
+                        <li>Covers setup, bar structure, and 2 bartenders for 4 hours</li>
+                        <li>Guests pay for their own drinks</li>
+                        <li>Extra hours: MWK 15,000 per additional hour</li>
+                    </ul>
+                    <div class="package-price">MWK 60,000</div>
+                    <a href="#contact" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Our Services</h2>
+            </div>
+            <div class="events-slider" data-aos="fade-up">
+                <div class="events-track">
+                    <div class="event-slide">
+                        <div class="event-card">
+                            <div class="event-image">
+                                <img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Wedding Packages">
+                            </div>
+                            <div class="event-content">
+                                <span class="event-date">Wedding Packages</span>
+                                <h3 class="event-title">Make Your Special Day Memorable</h3>
+                                <p class="event-description">Basic, Classic, Deluxe & Platinum packages available. Our experienced staff will set up and maintain beverage stations throughout your event.</p>
+                                <a href="#contact" class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-slide">
+                        <div class="event-card">
+                            <div class="event-image">
+                                <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Corporate Packages">
+                            </div>
+                            <div class="event-content">
+                                <span class="event-date">Corporate Packages</span>
+                                <h3 class="event-title">Professional Beverage Service</h3>
+                                <p class="event-description">Impress clients and employees with our corporate packages. From Basic to Platinum, we have options for every business event.</p>
+                                <a href="#contact" class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-slide">
+                        <div class="event-card">
+                            <div class="event-image">
+                                <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Party Packages">
+                            </div>
+                            <div class="event-content">
+                                <span class="event-date">Party Packages</span>
+                                <h3 class="event-title">Celebrate in Style</h3>
+                                <p class="event-description">Perfect for parties, anniversaries, and house calls. Classic, Deluxe & Platinum packages available to suit your needs.</p>
+                                <a href="#contact" class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Our Gallery</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="503412155_1253445416792776_1685566993283288671_n.jpg" alt="Cocktail">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus gallery-icon"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="489727675_1209236291213689_6358664214682101255_n.jpg" alt="Mocktail">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus gallery-icon"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="311912710_513378006945964_4397571428083479436_n.jpg" alt="Bar">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus gallery-icon"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="milkshake.png" alt="Ingredients">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus gallery-icon"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="503684460_1253445510126100_2981511584914398042_n.jpg" alt="Event">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus gallery-icon"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="Slushies.png" alt="Slushies">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus gallery-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Our Location</h3>
+                            <p>12/420 Shire Road, Lilongwe, Malawi</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Phone Number</h3>
+                            <p>0884 79 79 52</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Email Address</h3>
+                            <p>info@thelollipopfactory.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Opening Hours</h3>
+                            <p>Monday - Sunday: 9:00 AM - 5:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form" data-aos="fade-left">
+                    <form id="contactForm" action="https://formspree.io/f/mqazqjeg" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">The <span>Lollipop</span> Factory</div>
+                    <p class="footer-about">Crafting extraordinary cocktails and mocktails in the heart of Lilongwe. Experience the art of mixology with us.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1GyBTRtYGL/?mibextid=wwXIfr" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/lollipopfactorymw?igsh=aG9icmRqcWNkOHo5" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/lollipopfactori?ct=rw-ig" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.tiktok.com/@lollipopfactorymw?_r=1&_t=ZM-91U10cgzmJv" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#full-menu">Full Menu</a></li>
+                        <li><a href="#events">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Craft Cocktails</a></li>
+                        <li><a href="#">Creative Mocktails</a></li>
+                        <li><a href="#">Event Catering</a></li>
+                        <li><a href="#">Mixology Classes</a></li>
+                        <li><a href="#">Private Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to get updates on our latest offerings and events.</p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 The Lollipop Factory. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            hamburger.querySelector('i').classList.toggle('fa-bars');
+            hamburger.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Menu tabs functionality
+        const menuTabs = document.querySelectorAll('.menu-tab');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        menuTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                menuTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                const category = this.getAttribute('data-tab');
+                
+                // Show/hide menu items based on category
+                menuItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Events slider functionality
+        const eventsTrack = document.querySelector('.events-track');
+        const eventSlides = document.querySelectorAll('.event-slide');
+        const sliderDots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+
+        function goToSlide(slideIndex) {
+            eventsTrack.style.transform = `translateX(-${slideIndex * 100}%)`;
+            currentSlide = slideIndex;
+            
+            // Update active dot
+            sliderDots.forEach((dot, index) => {
+                if (index === slideIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Add click events to dots
+        sliderDots.forEach((dot, index) => {
+            dot.addEventListener('click', function() {
+                goToSlide(index);
+            });
+        });
+
+        // Auto slide every 5 seconds
+        setInterval(() => {
+            let nextSlide = (currentSlide + 1) % eventSlides.length;
+            goToSlide(nextSlide);
+        }, 5000);
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            // Form submission is handled by Formspree
+            // This function is kept for any additional client-side validation
+        });
+
+        // Download Menu PDF
+        const downloadMenuBtn = document.getElementById('download-menu');
+        downloadMenuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! The full menu PDF will be available for download soon. In the meantime, please browse our full menu above or contact us for more information.');
+            // In a real implementation, you would link to an actual PDF file
+            // window.open('path/to/your/menu.pdf', '_blank');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        hamburger.querySelector('i').classList.remove('fa-times');
+                        hamburger.querySelector('i').classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
